@@ -10,7 +10,7 @@ const Infocards = () => {
             name: 'Opening Hours',
             description: 'Open 9:00 am to 5:00 pm everyday',
             icon: clock,
-            bgClass: 'bg-primary'
+            bgClass: ' bg-gradient-to-r from-primary to-secondary'
         },
         {
             id: 2,
@@ -24,7 +24,7 @@ const Infocards = () => {
             name: 'Contact Us',
             description: 'Open 9:00 am to 5:00 pm everyday',
             icon: phone,
-            bgClass: 'bg-primary'
+            bgClass: 'bg-gradient-to-r from-primary to-secondary'
         },
     ]
     return (
