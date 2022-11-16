@@ -26,6 +26,7 @@ const Infocards = () => {
             icon: phone,
             bgClass: 'bg-gradient-to-r from-primary to-secondary'
         },
+       
     ]
     return (
         <div className='grid gap-6 mt-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
