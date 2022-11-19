@@ -27,9 +27,10 @@ const Availableappoint = ({ selected, setSelected }) => {
                     </Appointmentoption>)
                 }
             </div>
-           { treatment && 
-           <Bookingmodal
-                treatment={treatment}></Bookingmodal>}
+            {treatment &&
+                <Bookingmodal
+                    selected={selected}
+                    treatment={treatment}></Bookingmodal>}
         </section>
 
     );
