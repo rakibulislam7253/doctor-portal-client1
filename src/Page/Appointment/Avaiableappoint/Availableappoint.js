@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { format } from 'date-fns';
 import Appointmentoption from './Appointmentoption';
 import Bookingmodal from '../Bookingmodal/Bookingmodal';
+import { useQuery } from '@tanstack/react-query';
+import Loading from '../../Home/Sheard/loading/Loading';
 
 
-const Availableappoint = ({ selected, setSelected }) => {
-    const [appointmentoption, setappointmentoption] = useState([])
+const Availableappoint = ({ selected }) => {
+
     const [treatment, settreatment] = useState(null)
-    useEffect(() => {
-        fetch('appointment.json')
+    const date = format(selected, 'PP')
+    const { data: appointmentoption = [],refetch,isLoading } = useQuery({
+        queryKey: ['appointmentoption',date],
+        queryFn: () => fetch(`http://localhost:4000/appointmentOption?date=${date}`)
             .then(res => res.json())
-            .then(data => setappointmentoption(data))
-    }, [])
+    });
+    if(isLoading)
+    {
+        return <Loading></Loading>
+    }
+ 
     return (
         <section className='text-center'>
             <p className='font-bold'>Available Appointments on {format(selected, 'PP')}</p>
@@ -30,7 +38,9 @@ const Availableappoint = ({ selected, setSelected }) => {
             {treatment &&
                 <Bookingmodal
                     selected={selected}
-                    treatment={treatment}></Bookingmodal>}
+                    treatment={treatment}>
+                        refetch={refetch}
+                        </Bookingmodal>}
         </section>
 
     );
