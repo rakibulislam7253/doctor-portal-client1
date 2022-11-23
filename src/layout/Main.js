@@ -1,14 +1,14 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Footer from '../Page/Home/Sheard/Footer/Footer';
-import Header from '../Page/Home/Sheard/Header/Header';
+import Footer from '../Pages/Shared/Footer/Footer';
+import Navbar from '../Pages/Shared/Navbar/Navbar';
 
 const Main = () => {
     return (
         <div>
-            <Header></Header>
+            <Navbar></Navbar>
             <Outlet></Outlet>
-             <Footer></Footer>
+            <Footer></Footer>
         </div>
     );
 };

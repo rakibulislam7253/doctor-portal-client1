@@ -1,8 +1,11 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, Outlet } from 'react-router-dom';
+import { AuthContext } from '../context/Authprovider';
 import Header from '../Page/Home/Sheard/Header/Header';
 
 const DeshbordLayout = () => {
+    const { user } = useContext(AuthContext);
+
     return (
         <div>
             <Header></Header>
@@ -16,8 +19,9 @@ const DeshbordLayout = () => {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-                        <li><a>Sidebar Item 1</a></li>
-                        <li><a>Sidebar Item 2</a></li>
+                        <li><Link to={'/deshbord'} >My Appointment</Link></li>
+                        <li><Link to={'/deshbord/allusers'} >All users</Link></li>
+                   
                     </ul>
 
                 </div>
